@@ -1,52 +1,47 @@
 package com.example.lbjfan.lbjfanmvpexample;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.app.FragmentTabHost;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.TabHost;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.lbjfan.lbjfanmvpexample.base.BaseActivity;
 
+public class MainActivity extends BaseActivity {
+
+    private FragmentTabHost tabHost;
+    private Class[] fragmentTab = {NewsFragment.class, PictureFragment.class, MusicFragment.class, MineFragment.class};
+    private String[] tabName = {"新闻","图片","音乐","我的"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        initView();
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    protected void addContentView(int layoutID) {
+
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void initView() {
+        tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        tabHost.setup(this, getSupportFragmentManager(), R.id.fl_main_content);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        for (int i=0;i<tabName.length;i++){
+            TabHost.TabSpec tabSpec = tabHost.newTabSpec(tabName[i]).setIndicator(getTabView(i));
+            tabHost.addTab(tabSpec, fragmentTab[i], null);
         }
+        tabHost.getTabWidget().setDividerDrawable(R.color.color_white);
+    }
 
-        return super.onOptionsItemSelected(item);
+    private View getTabView(int position){
+        View tabView = View.inflate(this,R.layout.view_main_activity_bottom_tab,null);
+        TextView tvTabName = (TextView) tabView.findViewById(R.id.tv_tag);
+        tvTabName.setText(tabName[position]);
+        return tabView;
     }
 }

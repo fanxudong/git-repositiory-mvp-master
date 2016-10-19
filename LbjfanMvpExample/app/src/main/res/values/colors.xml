@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#FF4081</color>
+    <color name="colorPrimaryDark">#FF4081</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="color_main_activity_selected_tab">#FF4081</color>
+    <color name="color_main_activity_unselected_tab">#ffffff</color>
+    <color name="color_indicator_line">#e5e5e5</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_black">#000000</color>
 </resources>
