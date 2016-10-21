@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.lbjfan.lbjfanmvpexample.view.TabPageIndicator
+        android:id="@+id/tab_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_indicator_height"
+        app:dividerColor="@android:color/transparent"
+        app:indicatorColor="@color/colorPrimary"
+        app:indicatorHeight="@dimen/tab_indicator_line_height"
+        app:sameLine="true"
+        app:tabPaddingLeftRight="10dp"
+        android:background="@color/color_white"
+        app:tabTextSize="@dimen/tab_textSize"
+        app:tabSelectedColor="@color/colorPrimary"
+        app:tabUnSelectedColor="@color/color_tab_unselected"
+        app:underlineColor="@android:color/transparent"/>
+
+
+
+<android.support.v4.view.ViewPager
+android:id="@+id/viewPager"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+</android.support.v4.view.ViewPager>
+    </LinearLayout>

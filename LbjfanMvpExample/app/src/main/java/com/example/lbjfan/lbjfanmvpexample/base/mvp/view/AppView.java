@@ -1,6 +1,8 @@
 package com.example.lbjfan.lbjfanmvpexample.base.mvp.view;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +17,7 @@ public abstract class AppView implements BaseView {
     private View rootView;
 
     @Override
-    public void create(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
+    public void create(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState,Context context) {
         int rootLayoutId = getRootLayoutId();
         rootView  = inflater.inflate(rootLayoutId,viewGroup,false);
     }
@@ -29,7 +31,7 @@ public abstract class AppView implements BaseView {
     }
 
     @Override
-    public void initWidget() {
+    public void initWidget(FragmentActivity context) {
 
     }
 

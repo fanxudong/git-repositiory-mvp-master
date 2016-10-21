@@ -15,7 +15,7 @@ import com.example.lbjfan.lbjfanmvpexample.utils.UIUtils;
  */
 public abstract class FragmenterPresenter<T extends BaseView> extends Fragment {
 
-    private T iView;
+    public T iView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,11 @@ public abstract class FragmenterPresenter<T extends BaseView> extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        iView.create(inflater, container, savedInstanceState);
+        iView.create(inflater, container, savedInstanceState,getActivity());
+
+        iView.initWidget(getActivity());
+
+        bindEventListener();
 
         return iView.getRootView();
     }
@@ -42,9 +46,6 @@ public abstract class FragmenterPresenter<T extends BaseView> extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        iView.initWidget();
-
-        bindEventListener();
     }
 
     protected abstract Class<T> getIViewClass();

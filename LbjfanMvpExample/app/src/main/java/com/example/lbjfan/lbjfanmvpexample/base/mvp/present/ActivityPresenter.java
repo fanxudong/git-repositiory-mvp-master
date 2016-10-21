@@ -1,8 +1,8 @@
 package com.example.lbjfan.lbjfanmvpexample.base.mvp.present;
 
-import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
@@ -13,11 +13,12 @@ import com.example.lbjfan.lbjfanmvpexample.utils.UIUtils;
 /**
  * Created by ${lbjfan} on 16-10-20.
  */
-public abstract class ActivityPresenter<T extends BaseView> extends Activity {
+public abstract class ActivityPresenter<T extends BaseView> extends FragmentActivity {
 
     //present持有View层的引用
     private T iView;
     private RelativeLayout rootLayout;//整个的父布局，先添加Layout资源，然后添加进度条
+    private ProgressDialog pd;
 
     //利用构造函数进行初始化，获取View层的引用
     public ActivityPresenter() {
@@ -31,10 +32,10 @@ public abstract class ActivityPresenter<T extends BaseView> extends Activity {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        iView.create(getLayoutInflater(), null, savedInstanceState);
+        iView.create(getLayoutInflater(), null, savedInstanceState,this);
         //创建根布局
         rootLayout = new RelativeLayout(this);
         RelativeLayout.LayoutParams rootParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -44,7 +45,7 @@ public abstract class ActivityPresenter<T extends BaseView> extends Activity {
 
         setContentView(rootLayout);
 
-        iView.initWidget();
+        iView.initWidget(this);
         bindEventListener();
 
 
