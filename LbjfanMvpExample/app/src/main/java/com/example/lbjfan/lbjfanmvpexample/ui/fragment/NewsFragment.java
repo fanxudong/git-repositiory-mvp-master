@@ -16,7 +16,7 @@ public class NewsFragment extends FragmenterPresenter<NewsFragmentView> {
 
     @Override
     protected void bindEventListener() {
-        //iView.setTabPageIndicatorViewPager();
+        iView.setTabPageIndicatorViewPager();
     }
 
 }

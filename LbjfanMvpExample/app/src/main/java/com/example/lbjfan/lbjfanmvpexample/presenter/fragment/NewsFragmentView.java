@@ -31,7 +31,7 @@ public class NewsFragmentView extends AppView {
         tabPageIndicator = get$(R.id.tab_indicator);
         viewPager = get$(R.id.viewPager);
         adapter = new MyAdapter(((FragmentActivity)context).getSupportFragmentManager());
-        setTabPageIndicatorViewPager();
+        //setTabPageIndicatorViewPager();
     }
 
     public void setTabPageIndicatorViewPager(){
