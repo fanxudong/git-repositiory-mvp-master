@@ -3,15 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_alert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="弹出选择器"
-        android:textColor="@color/color_white"
-        android:textSize="17sp"
-        android:padding="5dp"
-        android:layout_margin="10dp"
-        android:background="@color/colorPrimary"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

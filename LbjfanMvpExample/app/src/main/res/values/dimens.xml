@@ -7,4 +7,10 @@
     <dimen name="tab_indicator_height">40dp</dimen>
     <dimen name="tab_indicator_line_height">2dp</dimen>
     <dimen name="tab_textSize">16sp</dimen>
+    <dimen name="ten_dip">10dp</dimen>
+    <dimen name="fifteen_dip">15dp</dimen>
+    <dimen name="five_dip">5dp</dimen>
+    <dimen name="eight_dip">8dp</dimen>
+    <dimen name="zero_dip">0dp</dimen>
+    <dimen name="tweenty_dip">20dp</dimen>
 </resources>
