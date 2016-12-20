@@ -2,7 +2,7 @@ package com.example.lbjfan.lbjfanmvpexample.ui.picture.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +12,7 @@ import com.example.lbjfan.lbjfanmvpexample.R;
 import com.example.lbjfan.lbjfanmvpexample.base.BaseFragment;
 import com.example.lbjfan.lbjfanmvpexample.modle.NewsBean;
 import com.example.lbjfan.lbjfanmvpexample.ui.picture.adapter.PictureRecyclerAdapter;
+import com.example.lbjfan.lbjfanmvpexample.view.FullBottomRecyclerView;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class PictureFragment extends BaseFragment implements PictureFragmentCont
 
     private View rootView;
     @Bind(R.id.recyclerView)
-    RecyclerView recyclerView;
+    FullBottomRecyclerView recyclerView;
 
     private PictureRecyclerAdapter adapter;
     private PicturePresent picturePresent;
@@ -45,9 +46,8 @@ public class PictureFragment extends BaseFragment implements PictureFragmentCont
         picturePresent = new PicturePresent(this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
         picturePresent.fetchPictureUrlList();
-        adapter = new PictureRecyclerAdapter(getActivity(), null);
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
